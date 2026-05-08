@@ -11,7 +11,7 @@ const JWT_SECRET = 'IJAHUSBB1653HSJAJ26AYAHW7';
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
-  max: 50,
+  max: 100,
   message: { error: 'Terlalu banyak request, coba lagi nanti.' }
 });
 app.use(limiter);
@@ -30,12 +30,12 @@ const authenticateJWT = (req, res, next) => {
   }
 };
 
-app.use('/auth', createProxyMiddleware({ target: 'http://localhost:3001', changeOrigin: true }));
+app.use('/auth', createProxyMiddleware({ target: 'http://localhost:7001', changeOrigin: true }));
 
 app.use('/api', authenticateJWT, createProxyMiddleware({ 
-  target: 'http://localhost:3002', 
+  target: 'http://localhost:7002', 
   changeOrigin: true,
-  on: { 
+  on: {
     proxyReq: (proxyReq, req, res) => {
       if (req.user) {
         proxyReq.setHeader('x-user-id', req.user.id);
@@ -45,4 +45,5 @@ app.use('/api', authenticateJWT, createProxyMiddleware({
   }
 }));
 
-app.listen(3000, () => console.log('API Gateway aktif di port 3000'));
+// Ubah port di sini menjadi 7012
+app.listen(7012, () => console.log('API Gateway aktif di port 7012'));

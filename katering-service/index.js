@@ -74,4 +74,4 @@ app.post('/orders', checkRole('customer'), async (req, res) => {
   }
 });
 
-app.listen(3002, () => console.log('Katering Service aktif di port 3002'));
+app.listen(7002, () => console.log('Katering Service aktif di port 7002'));

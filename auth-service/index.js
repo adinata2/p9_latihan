@@ -44,4 +44,4 @@ app.post('/login', async (req, res) => {
   }
 });
 
-app.listen(3001, () => console.log('Auth Service aktif di port 3001'));
+app.listen(7001, () => console.log('Auth Service aktif di port 7001'));

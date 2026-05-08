@@ -11,6 +11,6 @@ export default defineConfig({
   },
   engine: "classic",
   datasource: {
-      url: "mysql://root:@localhost:3306/fiteat_db",
+      url: "mysql://root:akucintafik@localhost:3306/fiteat_db",
     },
 });
