@@ -23,6 +23,7 @@ app.post('/register', async (req, res) => {
 
     res.status(201).json({ message: 'Registrasi berhasil', userId: newUser.id });
   } catch (error) {
+    console.error("ERROR REGISTER:", error);
     res.status(500).json({ error: 'Terjadi kesalahan pada server' });
   }
 });
